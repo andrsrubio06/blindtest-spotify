@@ -1,11 +1,13 @@
 /*global swal*/
 
-import React from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import logo from './logo.svg';
 import loading from './loading.svg';
 import './App.css';
 import Sound from 'react-sound';
 import Button from './Button';
+
+import { useState } from 'react';                   ///
 
 const apiToken = '<<Copiez le token de Spotify ici>>';
 
@@ -29,6 +31,10 @@ function getRandomNumber(x) {
 }
 
 const App = () => {
+  
+  const [text, setText] = useState('Valor inicial');
+  
+  useEffect(()=> setText('Bonjour'))
   return (
     <div className="App">
       <header className="App-header">
@@ -36,7 +42,8 @@ const App = () => {
         <h1 className="App-title">Welcome to my Blindtest</h1>
       </header>
       <div className="App-images">
-        <p>Il va falloir modifier le code pour faire un vrai Blindtest !</p>
+           <p>Il va falloir modifier le code pour faire un vrai Blindtest !</p> 
+           <p>{text}</p>  
       </div>
       <div className="App-buttons">
       </div>
